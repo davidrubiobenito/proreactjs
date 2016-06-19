@@ -53,14 +53,28 @@ var CheckList = React.createClass({
 });
 
 var Card = React.createClass({
+    getInitialState: function(){
+        return { showDetails: false }
+    },
+    toggleDetails() {
+        this.setState({showDetails: !this.state.showDetails});
+    },
     render(){
-        return (
-            <div className="card">
-                <div className="card__title">{this.props.title}</div>
+        let cardDetails;
+        if (this.state.showDetails){
+            cardDetails =  (
                 <div className="card__details">
                     {this.props.description}
                     <CheckList cardId={this.props.id} tasks={this.props.tasks} />
                 </div>
+            );
+        };
+        return (
+            <div className="card">
+                <div className="card__title" onClick={this.toggleDetails.bind(this)}>
+                    {this.props.title}
+                </div>
+                {cardDetails}
             </div>
         );
     }
