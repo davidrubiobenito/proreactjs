@@ -56,6 +56,9 @@ var Card = React.createClass({
     getInitialState: function(){
         return { showDetails: false }
     },
+    toggleDetails() {
+        this.setState({showDetails: !this.state.showDetails});
+    },
     render(){
         let cardDetails;
         if (this.state.showDetails){
@@ -68,9 +71,7 @@ var Card = React.createClass({
         };
         return (
             <div className="card">
-                <div className="card__title" onClick={
-                    ()=>this.setState({showDetails: !this.showDetails})
-                }>
+                <div className="card__title" onClick={this.toggleDetails.bind(this)}>
                     {this.props.title}
                 </div>
                 {cardDetails}
