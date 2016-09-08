@@ -1,7 +1,11 @@
-import Card from '/scripts/Card';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Card from './Card';
 
-var List = React.createClass({
-    render() {
+class List extends React.Component
+{
+    render()
+    {
         var cards = this.props.cards.map((card) => {
             return <Card id={card.id}
                          title={card.title}
@@ -15,7 +19,7 @@ var List = React.createClass({
                 {cards}
             </div>
         );
-    }
-});
+    };
+};
 
 export default List;

@@ -1,4 +1,6 @@
-//import KanbanBoard from '/scripts/KanbanBoard';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import KanbanBoard from './KanbanBoard';
 
 let cardsList = [
     {
@@ -33,7 +35,10 @@ let cardsList = [
     }
 ];
 
+console.log(cardsList);
+ReactDOM.render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
 
+/*
 var CheckList = React.createClass({
     render() {
         let tasks = this.props.tasks.map((task) => (
@@ -113,3 +118,4 @@ var KanbanBoard = React.createClass({
 });
 
 ReactDOM.render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+*/

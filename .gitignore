@@ -12,3 +12,7 @@ nbproject/*
 ### OSX template
 .DS_Store
 
+node_modules
+node_modules/
+node_modules/*
+
