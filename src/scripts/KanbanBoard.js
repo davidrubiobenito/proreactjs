@@ -1,7 +1,11 @@
-import List from '/scripts/List';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import List from './List';
 
-var KanbanBoard = React.createClass({
-    render(){
+class KanbanBoard extends React.Component
+{
+    render()
+    {
         return (
             <div className="app">
                 <List id='todo' title="To Do" cards={this.props.cards.filter((card) => card.status === "todo")} />
@@ -9,7 +13,7 @@ var KanbanBoard = React.createClass({
                 <List id='done' title='Done' cards={this.props.cards.filter((card) => card.status === "done")} />
             </div>
         );
-    }
-});
+    };
+};
 
 export default KanbanBoard;

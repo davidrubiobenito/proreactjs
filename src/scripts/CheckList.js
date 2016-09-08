@@ -1,5 +1,9 @@
-var CheckList = React.createClass({
-    render() {
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class CheckList extends React.Component{
+    render()
+    {
         let tasks = this.props.tasks.map((task) => (
             <li className="checklist__task">
                 <input type="checkbox" defaultChecked={task.done} />
@@ -13,7 +17,7 @@ var CheckList = React.createClass({
                 <ul>{tasks}</ul>
             </div>
         );
-    }
-});
+    };
+};
 
 export default CheckList;
