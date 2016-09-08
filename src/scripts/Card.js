@@ -25,7 +25,7 @@ class Card extends React.Component
         {
             cardDetails = (
                 <div className="card__details">
-                    {this.props.description}
+                    <span dangerouslySetInnerHTML={{__html:marked(this.props.description)}} />
                     <CheckList cardId={this.props.id} tasks={this.props.tasks}/>
                 </div>
             )
