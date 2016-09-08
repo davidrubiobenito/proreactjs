@@ -18,6 +18,6 @@ class CheckList extends React.Component{
             </div>
         );
     };
-};
+}
 
 export default CheckList;
