@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CheckList from './CheckList'
+import CheckList from './CheckList';
+import marked from 'marked';
 
 class Card extends React.Component
 {
@@ -10,6 +11,11 @@ class Card extends React.Component
         this.state = {
             showDetails: false
         };
+    };
+
+    toggleDetails()
+    {
+        this.setState({showDetails: !this.state.showDetails});
     };
 
     render()
@@ -27,7 +33,8 @@ class Card extends React.Component
 
         return (
             <div className="card">
-                <div className="card__title" onClick={() => this.setState({showDetails: !this.state.showDetails})}>
+                <div className={this.state.showDetails ? "card__title card__title--is-open" :  "card__title"}
+                     onClick={this.toggleDetails.bind(this)}>
                     {this.props.title}
                 </div>
                 {cardDetails}
