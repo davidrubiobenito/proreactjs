@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-class CheckList extends React.Component{
+class CheckList extends Component{
     render()
     {
         let tasks = this.props.tasks.map((task) => (
-            <li className="checklist__task">
+            <li key={task.id} className="checklist__task">
                 <input type="checkbox" defaultChecked={task.done} />
                 {task.name}
                 <a href="#" className="checklist__task--remove" />
@@ -15,9 +15,18 @@ class CheckList extends React.Component{
         return (
             <div className="checklist">
                 <ul>{tasks}</ul>
+                <input type="text"
+                       className="checklist--add-task"
+                       placeholder="Type then hit Enter to add a task" />
             </div>
         );
     };
 }
+
+CheckList.propTypes = {
+    cardId: PropTypes.number,
+    tasks: PropTypes.arrayOf(PropTypes.object)
+};
+
 
 export default CheckList;
